@@ -9,6 +9,7 @@ import java.util.Random;
 */
 public class TorpedoStore {
 
+  // When doing it this way, we ensure that only one random is created for all torpedo stores
   private static final Random random = new Random();
 
   // rate of failing to fire torpedos [0.0, 1.0]
@@ -32,6 +33,7 @@ public class TorpedoStore {
 
   public boolean fire(int numberOfTorpedos){
     if(numberOfTorpedos < 1 || numberOfTorpedos > this.torpedoCount){
+      // throw expection when out of torpedos
       throw new IllegalArgumentException("numberOfTorpedos");
     }
 
